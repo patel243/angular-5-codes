@@ -3,12 +3,19 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-name',
   template: `
-    <input [(ngModel)]="name">
-    <p>My name is {{name}}</p>
-  `
+    <button (click)="toggleVisible()">{{visible}}</button>
+    <p *ngIf="visible ; else hidden">I am visible now</p>
+    <ng-template #hidden><p>I am hidden boss!!</p></ng-template>
+    `
 })
 export class AppComponent implements OnInit {
-  name:string = 'Prateek';
+
+  // Initial state of the button
+  visible:boolean = false;
+  toggleVisible() {
+    this.visible = !this.visible;
+  }
+
   constructor() { }
 
   ngOnInit(): void { }
