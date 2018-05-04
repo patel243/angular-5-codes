@@ -3,19 +3,18 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-name',
   template: `
-    <button (click)="toggleVisible()">{{visible}}</button>
-    <p *ngIf="visible ; else hidden">I am visible now</p>
-    <ng-template #hidden><p>I am hidden boss!!</p></ng-template>
-    `
+  <ul>
+    <li *ngFor="let car of cars">{{car}}</li>
+  </ul>
+  `
 })
 export class AppComponent implements OnInit {
-
-  // Initial state of the button
-  visible:boolean = false;
-  toggleVisible() {
-    this.visible = !this.visible;
-  }
-
+  // application variables goes here
+  cars:string[] = [
+    'Toyota',
+    'Honda',
+    'Ford'
+  ];
   constructor() { }
 
   ngOnInit(): void { }
