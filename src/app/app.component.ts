@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-name',
   template: `
   <ul>
-    <li *ngFor="let car of cars">{{car}}</li>
+    <li *ngFor="let car of cars; let i=index">{{i}} - {{car}}</li>
   </ul>
   `
 })
