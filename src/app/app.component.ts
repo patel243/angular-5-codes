@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  template : `<p> My name is {{name}}</p>`,
-  // templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-name',
+  template: `
+  <button [disabled]="isDisabled" (click)="someAction()">Regular Button<button>
+  <button (click)="changeDisabled()">{{isDisabled}}</button>
+  `
 })
-export class AppComponent implements OnInit {
-
-  // Define all the application variables here pertaining to the component
-  name: string = 'Rocky';
-
-  constructor() { 
-    setTimeout(() => {
-      this.name = 'Arnav'
-    },1000);
+export class NameComponent implements OnInit {
+  isDisabled:boolean = true;
+  someAction(){
+    alert('hello here I am max');
   }
+  changeDisabled(){
+    this.isDisabled = !this.isDisabled;
+  }
+  constructor() { }
 
   ngOnInit(): void { }
 }
