@@ -6,7 +6,12 @@ import { Component, OnInit } from '@angular/core';
     <ul>
       <li *ngFor="let car of cars" [ngClass]="{notInStock : car.total == 0}">{{car.name}}</li>
     </ul> 
-  `
+  `,
+  styles:[
+    `.notInStock {
+      background-color: red 
+    }`
+  ]
 })
 export class NameComponent implements OnInit {
   constructor() { }
