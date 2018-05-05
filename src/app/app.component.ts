@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-name',
   template: `
     <ul>
-      <li *ngFor="let car of cars" [ngClass]="notInStock : car.total == 0">{{car.name}}</li>
+      <li *ngFor="let car of cars" [ngClass]="{notInStock : car.total == 0}">{{car.name}}</li>
     </ul> 
   `
 })
