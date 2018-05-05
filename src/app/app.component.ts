@@ -2,36 +2,23 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-name',
-  template: `
-    <ul>
-      <li *ngFor="let car of cars" [ngClass]="{notInStock : car.total == 0}">{{car.name}}</li>
-    </ul> 
-  `,
-  styles:[
-    `.notInStock {
-      background-color: red 
-    }`
-  ]
+  template:  `
+    <div [ngSwitch]="count">
+    <p *ngSwitchCase="5">
+      Count is 5
+    </p>
+    <p *ngSwitchCase="10">
+      Count is 10
+    </p>
+    <p *ngSwitchDefault>
+      Count is default
+    </p>
+    </div>
+  `
 })
-export class NameComponent implements OnInit {
+export class AppComponent implements OnInit {
+  count:number = 5;
   constructor() { }
-  cars = [
-    {
-      name : 'Mercedes',
-      total : 0
-    },
-    {
-      name : 'BMW',
-      total : 2
-    },
-    {
-      name : 'Node',
-      total : 2
-    },
-    {
-      name : 'Honda',
-      total : 32
-    }
-  ];
-  ngOnInit(): void { }  
+
+  ngOnInit(): void { }
 }
