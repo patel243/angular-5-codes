@@ -4,18 +4,30 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-name',
   template: `
   <ul>
-    <li *ngFor="let car of cars; let i=index">{{i}} - {{car}}</li>
+    <li *ngFor="let car of cars" [ngStyle]="{backgroundColor: car.total > 0 ? 'green' : 'red' }">{{car.name}}</li>
   </ul>
   `
 })
 export class AppComponent implements OnInit {
-  // application variables goes here
-  cars:string[] = [
-    'Toyota',
-    'Honda',
-    'Ford'
-  ];
-  constructor() { }
+  constructor(){
 
-  ngOnInit(): void { }
+  }
+  cars = [
+    {
+      name : 'Toyota',
+      total : 1
+    },
+    {
+      name : 'Ford',
+      total : 0
+    },
+    {
+      name : 'Honda',
+      total : 2
+    }
+  ];
+  ngOnInit(){
+
+  }
+
 }
