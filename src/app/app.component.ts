@@ -3,31 +3,30 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-name',
   template: `
-  <ul>
-    <li *ngFor="let car of cars" [ngStyle]="{backgroundColor: car.total > 0 ? 'green' : 'red' }">{{car.name}}</li>
-  </ul>
+    <ul>
+      <li *ngFor="let car of cars" [ngClass]="notInStock : car.total == 0">{{car.name}}</li>
+    </ul> 
   `
 })
-export class AppComponent implements OnInit {
-  constructor(){
-
-  }
+export class NameComponent implements OnInit {
+  constructor() { }
   cars = [
     {
-      name : 'Toyota',
-      total : 1
-    },
-    {
-      name : 'Ford',
+      name : 'Mercedes',
       total : 0
     },
     {
-      name : 'Honda',
+      name : 'BMW',
       total : 2
+    },
+    {
+      name : 'Node',
+      total : 2
+    },
+    {
+      name : 'Honda',
+      total : 32
     }
   ];
-  ngOnInit(){
-
-  }
-
+  ngOnInit(): void { }  
 }
